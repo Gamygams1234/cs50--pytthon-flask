@@ -1,15 +1,8 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Is it New Year's?</title>
-  </head>
-  <body>
-    <h1>Names</h1>
-    <ul>
-      {% for name in names %}
-      <li>{{name}}</li>
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+{% extends "layout.html" %} {% block heading %}Names{% endblock %} {%block body%}
+<ul>
+  {% for name in names %}
+  <li>{{name}}</li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('newyear')}}">Is it New Years?</a>
+{% endblock %}
