@@ -18,6 +18,12 @@ def hello(name):
     return f"Hello, {name}!"
 
 
+@app.route("/names")
+def names():
+    names = ["John", "Jacob", "Reyes"]
+    return render_template('names.html', names=names)
+
+
 @app.route("/bye")
 def bye():
     headline = "Bye everybody"
