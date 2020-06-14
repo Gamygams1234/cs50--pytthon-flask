@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import datetime
 
 
@@ -8,14 +8,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    headline = "Hello everybody"
+    headline = "First Page"
     return render_template('index.html', headline=headline)
 
 
-@app.route("/<string:name>")
-def hello(name):
-    name = name.capitalize()
-    return f"Hello, {name}!"
+@app.route("/hello", methods=["POST"])
+def hello():
+    name = request.form.get("name")
+    return render_template('hello.html', name=name)
 
 
 @app.route("/names")
